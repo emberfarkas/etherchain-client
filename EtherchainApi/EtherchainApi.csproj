@@ -48,20 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiResponses\Blocks\GetBlocksCountResponse.cs" />
     <Compile Include="ApiResponses\EtherchainApiResponse.cs" />
-    <Compile Include="ApiResponses\GetAccountCountResponse.cs" />
-    <Compile Include="ApiResponses\GetAccountNonceResponse.cs" />
-    <Compile Include="ApiResponses\GetAccountResponse.cs" />
-    <Compile Include="ApiResponses\GetAccountSourceResponse.cs" />
-    <Compile Include="ApiResponses\GetAccountsResponse.cs" />
-    <Compile Include="ApiResponses\GetAccountTransactionsResponse.cs" />
-    <Compile Include="ApiResponses\GetMinedBlocksResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetAccountCountResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetAccountNonceResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetAccountResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetAccountSourceResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetAccountsResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetAccountTransactionsResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetMinedBlocksHistoryResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetMinedBlocksResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetMinedUnclesHistoryResponse.cs" />
+    <Compile Include="ApiResponses\Accounts\GetMultipleAccountsResponse.cs" />
     <Compile Include="EtherchainApiClient.cs" />
+    <Compile Include="EtherchainApiClientAccounts.cs" />
+    <Compile Include="EtherchainApiClientBlocks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

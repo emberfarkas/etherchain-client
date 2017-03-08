@@ -32,5 +32,18 @@ namespace EtherchainApi
             var deserializedContent = JsonConvert.DeserializeObject<GetAccountResponse>(content);
             return deserializedContent;
         }
+
+        /// <summary>
+        /// Returns the number of used accounts.
+        /// </summary>
+        /// <returns></returns>
+        public GetAccountCountResponse GetAccountCount()
+        {
+            var request = new RestRequest("/accounts/count", Method.GET);
+            var response = _restClient.Execute(request);
+            var content = response.Content; // raw content as string
+            var deserializedContent = JsonConvert.DeserializeObject<GetAccountCountResponse>(content);
+            return deserializedContent;
+        }
     }
 }

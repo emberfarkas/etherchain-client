@@ -6,12 +6,8 @@ namespace EtherchainApi.ApiResponses
     /// <summary>
     /// Response to GetAccount request (See https://etherchain.org/documentation/api/#api-Accounts-GetAccountId)
     /// </summary>
-    public class GetAccountResponse
+    public class GetAccountResponse : EtherchainApiResponse<List<GetAccountResponseData>>
     {
-        [JsonProperty("status")]
-        public int Status { get; set; }
-        [JsonProperty("data")]
-        public List<GetAccountResponseData> data { get; set; }
     }
 
     public class GetAccountResponseData

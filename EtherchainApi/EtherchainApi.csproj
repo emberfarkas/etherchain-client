@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiResponses\EtherchainApiResponse.cs" />
+    <Compile Include="ApiResponses\GetAccountCountResponse.cs" />
     <Compile Include="ApiResponses\GetAccountResponse.cs" />
     <Compile Include="EtherchainApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

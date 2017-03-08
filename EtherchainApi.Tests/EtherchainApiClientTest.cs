@@ -14,8 +14,17 @@ namespace EtherchainApi.Tests
         {
             var apiClient = new EtherchainApiClient();
             var response = apiClient.GetAccount(TestAddress);
-            response.data.Count.Should().Be(1);
-            response.data[0].Balance.Should().BeGreaterThan(0);
+            response.Data.Count.Should().Be(1);
+            response.Data[0].Balance.Should().BeGreaterThan(0);
+        }
+
+        [TestMethod]
+        public void TestGetAccountCount()
+        {
+            var apiClient = new EtherchainApiClient();
+            var response = apiClient.GetAccountCount();
+            response.Data.Count.Should().Be(1);
+            response.Data[0].Count.Should().BeGreaterThan(100000);
         }
     }
 }

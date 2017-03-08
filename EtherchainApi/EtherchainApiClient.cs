@@ -89,7 +89,35 @@ namespace EtherchainApi
             var content = response.Content; // raw content as string
             var deserializedContent = JsonConvert.DeserializeObject<GetAccountTransactionsResponse>(content);
             return deserializedContent;
-        } 
+        }
+
+        /// <summary>
+        /// Returns the last 50 accounts, sorted by balance. Use the offset parameter for paging.
+        /// </summary>
+        /// <param name="offset">The number of accounts to skip.</param>
+        /// <returns></returns>
+        public GetAccountsResponse GetAccounts(int offset = 0)
+        {
+            var request = new RestRequest($"/accounts/{offset}", Method.GET);
+            var response = _restClient.Execute(request);
+            var content = response.Content; // raw content as string
+            var deserializedContent = JsonConvert.DeserializeObject<GetAccountsResponse>(content);
+            return deserializedContent;
+        }
+
+        /// <summary>
+        /// Returns the number of blocks mined from an account.
+        /// </summary>
+        /// <param name="id">The address of the account</param>
+        /// <returns></returns>
+        public GetMinedBlocksResponse GetMinedBlocks(string id)
+        {
+            var request = new RestRequest($"/account/{id}/mined", Method.GET);
+            var response = _restClient.Execute(request);
+            var content = response.Content; // raw content as string
+            var deserializedContent = JsonConvert.DeserializeObject<GetMinedBlocksResponse>(content);
+            return deserializedContent;
+        }
 #endregion
     }
 }

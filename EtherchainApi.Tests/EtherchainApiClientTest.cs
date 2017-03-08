@@ -57,5 +57,23 @@ namespace EtherchainApi.Tests
             response.Status.Should().Be(1);
             response.Data.Count.Should().Be(50);
         }
+
+        [TestMethod]
+        public void TestGetAccounts()
+        {
+            var apiClient = new EtherchainApiClient();
+            var response = apiClient.GetAccounts();
+            response.Status.Should().Be(1);
+            response.Data.Count.Should().Be(50);
+        }
+
+        [TestMethod]
+        public void TestGetMinedBlocks()
+        {
+            var apiClient = new EtherchainApiClient();
+            var response = apiClient.GetMinedBlocks(TestAddress);
+            response.Status.Should().Be(1);
+            response.Data.Count.Should().BeGreaterThan(9);
+        }
     }
 }

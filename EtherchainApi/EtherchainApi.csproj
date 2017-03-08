@@ -53,7 +53,9 @@
     <Compile Include="ApiResponses\GetAccountNonceResponse.cs" />
     <Compile Include="ApiResponses\GetAccountResponse.cs" />
     <Compile Include="ApiResponses\GetAccountSourceResponse.cs" />
+    <Compile Include="ApiResponses\GetAccountsResponse.cs" />
     <Compile Include="ApiResponses\GetAccountTransactionsResponse.cs" />
+    <Compile Include="ApiResponses\GetMinedBlocksResponse.cs" />
     <Compile Include="EtherchainApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

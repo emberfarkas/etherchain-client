@@ -15,7 +15,7 @@ namespace EtherchainApi.ApiResponses
         [JsonProperty("address")]
         public string Address { get; set; }
         [JsonProperty("balance")]
-        public long Balance { get; set; }
+        public decimal Balance { get; set; }
         [JsonProperty("nonce")]
         public string Nonce { get; set; }
         [JsonProperty("code")]

@@ -7,13 +7,15 @@ namespace EtherchainApi.Tests
     [TestClass]
     public class EtherchainApiClientTest
     {
-        private const string TestAddress = "0x28653a6F957f0db7232A0b168D015f33ce6B124a";
+        private const string TestAddress = "0xd34da389374caad1a048fbdc4569aae33fd5a375";
+        //"0x28653a6F957f0db7232A0b168D015f33ce6B124a";
 
         [TestMethod]
         public void TestGetAccount()
         {
             var apiClient = new EtherchainApiClient();
             var response = apiClient.GetAccount(TestAddress);
+            response.Status.Should().Be(1);
             response.Data.Count.Should().Be(1);
             response.Data[0].Balance.Should().BeGreaterThan(0);
         }
@@ -23,8 +25,20 @@ namespace EtherchainApi.Tests
         {
             var apiClient = new EtherchainApiClient();
             var response = apiClient.GetAccountCount();
+            response.Status.Should().Be(1);
             response.Data.Count.Should().Be(1);
             response.Data[0].Count.Should().BeGreaterThan(100000);
         }
+
+        [TestMethod]
+        public void TestGetAccountNonce()
+        {
+            var apiClient = new EtherchainApiClient();
+            var response = apiClient.GetAccountNonce(TestAddress);
+            response.Status.Should().Be(1);
+            response.Data.Count.Should().Be(1);
+            response.Data[0].AccountNonce.Should().BeGreaterThan(100000);
+        }
+
     }
 }

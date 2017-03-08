@@ -45,5 +45,19 @@ namespace EtherchainApi
             var deserializedContent = JsonConvert.DeserializeObject<GetAccountCountResponse>(content);
             return deserializedContent;
         }
+
+        /// <summary>
+        /// Returns the number of transactions issued from an account.
+        /// </summary>
+        /// <param name="id">The address of the account</param>
+        /// <returns></returns>
+        public GetAccountNonceResponse GetAccountNonce(string id)
+        {
+            var request = new RestRequest("/account/" + id + "/nonce", Method.GET);
+            var response = _restClient.Execute(request);
+            var content = response.Content; // raw content as string
+            var deserializedContent = JsonConvert.DeserializeObject<GetAccountNonceResponse>(content);
+            return deserializedContent;
+        }
     }
 }

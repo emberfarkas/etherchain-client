@@ -40,5 +40,22 @@ namespace EtherchainApi.Tests
             response.Data[0].AccountNonce.Should().BeGreaterThan(100000);
         }
 
+        [TestMethod]
+        public void TestGetAccountSource()
+        {
+            var apiClient = new EtherchainApiClient();
+            var response = apiClient.GetAccountSource(TestAddress);
+            response.Status.Should().Be(1);
+            //response.Data.Count.Should().Be(1);
+        }
+
+        [TestMethod]
+        public void TestGetAccountTransactions()
+        {
+            var apiClient = new EtherchainApiClient();
+            var response = apiClient.GetAccountTransactions(TestAddress);
+            response.Status.Should().Be(1);
+            response.Data.Count.Should().Be(50);
+        }
     }
 }

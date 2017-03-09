@@ -1,4 +1,5 @@
 ﻿using EtherchainApi.ApiResponses;
+using EtherchainApi.ApiResponses.Accounts;
 using Newtonsoft.Json;
 using RestSharp;
 

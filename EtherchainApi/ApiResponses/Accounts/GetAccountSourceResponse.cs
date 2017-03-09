@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace EtherchainApi.ApiResponses
+namespace EtherchainApi.ApiResponses.Accounts
 {
     /// <summary>
     /// Response to GetAccountSource request (See https://etherchain.org/documentation/api/#api-Accounts-GetAccountIdSource)

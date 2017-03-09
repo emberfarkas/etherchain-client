@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace EtherchainApi.ApiResponses
+namespace EtherchainApi.ApiResponses.Blocks
 {
     /// <summary>
     /// Response to GetBlocksCount request

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace EtherchainApi.ApiResponses
+namespace EtherchainApi.ApiResponses.Accounts
 {
     /// <summary>
     /// Response to GetAccounts request (See https://etherchain.org/documentation/api/#api-Accounts-GetAccountsOffset)

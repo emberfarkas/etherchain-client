@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,7 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiResponses\Blocks\BlockData.cs" />
+    <Compile Include="ApiResponses\Blocks\GetBlocksByNumberOfHashResponse.cs" />
     <Compile Include="ApiResponses\Blocks\GetBlocksCountResponse.cs" />
+    <Compile Include="ApiResponses\Blocks\GetBlocksResponse.cs" />
+    <Compile Include="ApiResponses\Blocks\GetTxForBlockResponse.cs" />
     <Compile Include="ApiResponses\EtherchainApiResponse.cs" />
     <Compile Include="ApiResponses\Accounts\GetAccountCountResponse.cs" />
     <Compile Include="ApiResponses\Accounts\GetAccountNonceResponse.cs" />
@@ -60,15 +65,22 @@
     <Compile Include="ApiResponses\Accounts\GetMinedBlocksResponse.cs" />
     <Compile Include="ApiResponses\Accounts\GetMinedUnclesHistoryResponse.cs" />
     <Compile Include="ApiResponses\Accounts\GetMultipleAccountsResponse.cs" />
+    <Compile Include="ApiResponses\Transactions\GetTransactionCountResponse.cs" />
+    <Compile Include="ApiResponses\Transactions\GetTransactionResponse.cs" />
+    <Compile Include="ApiResponses\Transactions\GetTransactionsResponse.cs" />
+    <Compile Include="ApiResponses\Transactions\TransactionData.cs" />
     <Compile Include="EtherchainApiClient.cs" />
     <Compile Include="EtherchainApiClientAccounts.cs" />
     <Compile Include="EtherchainApiClientBlocks.cs" />
+    <Compile Include="EtherchainApiClientTransactions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ApiResponses\Statistics\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

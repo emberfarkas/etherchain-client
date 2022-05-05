@@ -15,20 +15,20 @@ namespace EtherchainApi.Tests
         private const string TestBlockId = "3319753";
 
         [TestMethod]
-        public void TestGetBlocksCount()
+        public async void TestGetBlocksCount()
         {
             var apiClient = new EtherchainApiClient();
-            var response = apiClient.GetBlocksCount();
-            response.Status.Should().Be(1);
-            response.Data.Count.Should().Be(1);
-            response.Data[0].Count.Should().BeGreaterThan(3315040);
+            var response = await apiClient.GetBlocksCount();
+            response?.Status.Should().Be(1);
+            response?.Data.Count.Should().Be(1);
+            response?.Data[0].Count.Should().BeGreaterThan(3315040);
         }
 
         [TestMethod]
-        public void TestGetBlockByNumberOrHash()
+        public async void TestGetBlockByNumberOrHash()
         {
             var apiClient = new EtherchainApiClient();
-            var response = apiClient.GetBlockByNumberOfHash(TestBlockId);
+            var response = await apiClient.GetBlockByNumberOfHash(TestBlockId);
             response.Status.Should().Be(1);
             response.Data.Count.Should().Be(1);
             response.Data[0].Number.Should().Be(3319753);
@@ -55,10 +55,10 @@ namespace EtherchainApi.Tests
         }
 
         [TestMethod]
-        public void TestGetBlocks()
+        public async void TestGetBlocks()
         {
             var apiClient = new EtherchainApiClient();
-            var response = apiClient.GetBlocks(0, 50);
+            var response = await apiClient.GetBlocks(0, 50);
             response.Status.Should().Be(1);
             response.Data.Count.Should().Be(50);
             response.Data.ForEach(d =>
@@ -81,10 +81,10 @@ namespace EtherchainApi.Tests
         }
 
         [TestMethod]
-        public void TestGetTxForBlock()
+        public async void TestGetTxForBlock()
         {
             var apiClient = new EtherchainApiClient();
-            var response = apiClient.GetTxForBlock(TestBlockId);
+            var response = await apiClient.GetTxForBlock(TestBlockId);
             response.Status.Should().Be(1);
             response.Data.Count.Should().Be(11);
             response.Data.ForEach(d =>

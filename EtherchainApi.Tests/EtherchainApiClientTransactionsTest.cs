@@ -12,10 +12,10 @@ namespace EtherchainApi.Tests
         private const string TestTxHash = "0xe52a49364811fbcd0004470bb68c1f0aa108cff8650ed50fcf88aba337ad7b84";
 
         [TestMethod]
-        public void TestGetTransaction()
+        public async void TestGetTransaction()
         {
             var apiClient = new EtherchainApiClient();
-            var response = apiClient.GetTransaction(TestTxHash);
+            var response = await apiClient.GetTransaction(TestTxHash);
             response.Status.Should().Be(1);
             response.Data.Count.Should().Be(1);
             response.Data[0].Hash.Should().Be("0xe52a49364811fbcd0004470bb68c1f0aa108cff8650ed50fcf88aba337ad7b84");
@@ -39,20 +39,20 @@ namespace EtherchainApi.Tests
         }
 
         [TestMethod]
-        public void TestGetTransactionCount()
+        public async void TestGetTransactionCount()
         {
             var apiClient = new EtherchainApiClient();
-            var response = apiClient.GetTransactionCount();
+            var response = await apiClient.GetTransactionCount();
             response.Status.Should().Be(1);
             response.Data.Count.Should().Be(1);
             response.Data[0].Count.Should().BeGreaterOrEqualTo(19858022);
         }
 
         [TestMethod]
-        public void TestGetTransactions()
+        public async void TestGetTransactions()
         {
             var apiClient = new EtherchainApiClient();
-            var response = apiClient.GetTransactions(0, 50);
+            var response = await apiClient.GetTransactions(0, 50);
             response.Status.Should().Be(1);
             response.Data.Count.Should().Be(50);
             response.Data.ForEach(d =>

@@ -15,26 +15,20 @@ namespace EtherchainApi
         /// </summary>
         /// <param name="id">The address of the account</param>
         /// <returns></returns>
-        public GetAccountResponse GetAccount(string id)
+        public async Task<GetAccountResponse?> GetAccount(string id)
         {
-            var request = new RestRequest("/account/" + id, Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetAccountResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetAccountResponse>("/account/" + id);
+            return response;
         }
 
         /// <summary>
         /// Returns the number of used accounts.
         /// </summary>
         /// <returns></returns>
-        public GetAccountCountResponse GetAccountCount()
+        public async Task<GetAccountCountResponse?> GetAccountCount()
         {
-            var request = new RestRequest("/accounts/count", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetAccountCountResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetAccountCountResponse>("/accounts/count");
+            return response;
         }
 
         /// <summary>
@@ -42,13 +36,10 @@ namespace EtherchainApi
         /// </summary>
         /// <param name="id">The address of the account</param>
         /// <returns></returns>
-        public GetAccountNonceResponse GetAccountNonce(string id)
+        public async Task<GetAccountNonceResponse> GetAccountNonce(string id)
         {
-            var request = new RestRequest($"/account/{id}/nonce", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetAccountNonceResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetAccountNonceResponse>($"/account/{id}/nonce");
+            return response;
         }
 
         /// <summary>
@@ -56,13 +47,10 @@ namespace EtherchainApi
         /// </summary>
         /// <param name="id">The address of the account</param>
         /// <returns></returns>
-        public GetAccountSourceResponse GetAccountSource(string id)
+        public async Task<GetAccountSourceResponse> GetAccountSource(string id)
         {
-            var request = new RestRequest($"/account/{id}/source", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetAccountSourceResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetAccountSourceResponse>($"/account/{id}/source");
+            return response;
         }
 
         /// <summary>
@@ -72,13 +60,10 @@ namespace EtherchainApi
         /// <param name="id">The address of the account</param>
         /// <param name="offset">The number of transactions to skip</param>
         /// <returns></returns>
-        public GetAccountTransactionsResponse GetAccountTransactions(string id, int offset = 0)
+        public async Task<GetAccountTransactionsResponse> GetAccountTransactions(string id, int offset = 0)
         {
-            var request = new RestRequest($"/account/{id}/tx/{offset}", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetAccountTransactionsResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetAccountTransactionsResponse>($"/account/{id}/tx/{offset}");
+            return response;
         }
 
         /// <summary>
@@ -86,13 +71,10 @@ namespace EtherchainApi
         /// </summary>
         /// <param name="offset">The number of accounts to skip.</param>
         /// <returns></returns>
-        public GetAccountsResponse GetAccounts(int offset = 0)
+        public async Task<GetAccountsResponse> GetAccounts(int offset = 0)
         {
-            var request = new RestRequest($"/accounts/{offset}", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetAccountsResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetAccountsResponse>($"/accounts/{offset}");
+            return response;
         }
 
         /// <summary>
@@ -100,13 +82,10 @@ namespace EtherchainApi
         /// </summary>
         /// <param name="id">The address of the account</param>
         /// <returns></returns>
-        public GetMinedBlocksResponse GetMinedBlocks(string id)
+        public async Task<GetMinedBlocksResponse> GetMinedBlocks(string id)
         {
-            var request = new RestRequest($"/account/{id}/mined", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetMinedBlocksResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetMinedBlocksResponse>($"/account/{id}/mined");
+            return response;
         }
 
         /// <summary>
@@ -114,13 +93,10 @@ namespace EtherchainApi
         /// </summary>
         /// <param name="id">The address of the account</param>
         /// <returns></returns>
-        public GetMinedBlocksHistoryResponse GetMinedBlocksHistory(string id)
+        public async Task<GetMinedBlocksHistoryResponse> GetMinedBlocksHistory(string id)
         {
-            var request = new RestRequest($"/account/{id}/miningHistory", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetMinedBlocksHistoryResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetMinedBlocksHistoryResponse>($"/account/{id}/miningHistory");
+            return response;
         }
 
         /// <summary>
@@ -128,13 +104,10 @@ namespace EtherchainApi
         /// </summary>
         /// <param name="id">The address of the account</param>
         /// <returns></returns>
-        public GetMinedUnclesHistoryResponse GetMinedUnclesHistory(string id)
+        public async Task<GetMinedUnclesHistoryResponse> GetMinedUnclesHistory(string id)
         {
-            var request = new RestRequest($"/account/{id}/miningUncleHistory", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetMinedUnclesHistoryResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetMinedUnclesHistoryResponse>($"/account/{id}/miningUncleHistory");
+            return response;
         }
 
         /// <summary>
@@ -142,13 +115,10 @@ namespace EtherchainApi
         /// </summary>
         /// <param name="ids">The address of the accounts(separated by comma)</param>
         /// <returns></returns>
-        public GetMultipleAccountsResponse GetMultipleAccounts(string ids)
+        public async Task<GetMultipleAccountsResponse> GetMultipleAccounts(string ids)
         {
-            var request = new RestRequest($"/account/multiple/{ids}", Method.GET);
-            var response = _restClient.Execute(request);
-            var content = response.Content; // raw content as string
-            var deserializedContent = JsonConvert.DeserializeObject<GetMultipleAccountsResponse>(content);
-            return deserializedContent;
+            var response = await _restClient.GetJsonAsync<GetMultipleAccountsResponse>($"/account/multiple/{ids}");
+            return response;
         }
     }
 }
